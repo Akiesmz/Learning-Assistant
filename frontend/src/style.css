@@ -1,0 +1,366 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --app-bg: #f0f2f5;
+  --app-fg: rgba(0, 0, 0, 0.88);
+  --surface-bg: #ffffff;
+  --surface-fg: #323130;
+  --border-color: #f0f0f0;
+  --muted-fg: rgba(0, 0, 0, 0.45);
+
+  --bubble-user-bg: #0078d4;
+  --bubble-user-fg: #ffffff;
+  --bubble-ai-bg: #f3f2f1;
+  --bubble-ai-fg: #323130;
+
+  --fab-bg: #ffffff;
+  --fab-fg: #323130;
+  --fab-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+
+  --background: 255 255 255;
+  --foreground: 23 23 23;
+  --primary: 108 63 245;
+  --primary-foreground: 255 255 255;
+  --secondary: 245 245 245;
+  --secondary-foreground: 23 23 23;
+  --muted: 245 245 245;
+  --muted-foreground: 107 114 128;
+  --accent: 245 245 245;
+  --accent-foreground: 23 23 23;
+  --destructive: 239 68 68;
+  --destructive-foreground: 255 255 255;
+  --border: 226 232 240;
+  --input: 226 232 240;
+  --ring: 108 63 245;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --app-bg: #0f0f10;
+    --app-fg: rgba(255, 255, 255, 0.88);
+    --surface-bg: #1b1a19;
+    --surface-fg: rgba(255, 255, 255, 0.88);
+    --border-color: rgba(255, 255, 255, 0.10);
+    --muted-fg: rgba(255, 255, 255, 0.60);
+
+    --bubble-user-bg: #0078d4;
+    --bubble-user-fg: #ffffff;
+    --bubble-ai-bg: #252423;
+    --bubble-ai-fg: #f3f2f1;
+
+    --fab-bg: #1b1a19;
+    --fab-fg: rgba(255, 255, 255, 0.88);
+    --fab-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+
+    --background: 10 10 10;
+    --foreground: 237 237 237;
+    --primary: 108 63 245;
+    --primary-foreground: 255 255 255;
+    --secondary: 39 39 42;
+    --secondary-foreground: 237 237 237;
+    --muted: 39 39 42;
+    --muted-foreground: 161 161 170;
+    --accent: 39 39 42;
+    --accent-foreground: 237 237 237;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 63 63 70;
+    --input: 63 63 70;
+    --ring: 108 63 245;
+  }
+}
+
+:root[data-theme="light"] {
+  --app-bg: #f0f2f5;
+  --app-fg: rgba(0, 0, 0, 0.88);
+  --surface-bg: #ffffff;
+  --surface-fg: #323130;
+  --border-color: #f0f0f0;
+  --muted-fg: rgba(0, 0, 0, 0.45);
+
+  --bubble-user-bg: #0078d4;
+  --bubble-user-fg: #ffffff;
+  --bubble-ai-bg: #f3f2f1;
+  --bubble-ai-fg: #323130;
+
+  --fab-bg: #ffffff;
+  --fab-fg: #323130;
+  --fab-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+}
+
+:root[data-theme="dark"] {
+  --app-bg: #0f0f10;
+  --app-fg: rgba(255, 255, 255, 0.88);
+  --surface-bg: #1b1a19;
+  --surface-fg: rgba(255, 255, 255, 0.88);
+  --border-color: rgba(255, 255, 255, 0.10);
+  --muted-fg: rgba(255, 255, 255, 0.60);
+
+  --bubble-user-bg: #0078d4;
+  --bubble-user-fg: #ffffff;
+  --bubble-ai-bg: #252423;
+  --bubble-ai-fg: #f3f2f1;
+
+  --fab-bg: #1b1a19;
+  --fab-fg: rgba(255, 255, 255, 0.88);
+  --fab-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+
+  --nav-icon-color: rgba(255, 255, 255, 0.85);
+  --nav-text-color: rgba(255, 255, 255, 0.85);
+
+  --background: 10 10 10;
+  --foreground: 237 237 237;
+  --primary: 108 63 245;
+  --primary-foreground: 255 255 255;
+  --secondary: 39 39 42;
+  --secondary-foreground: 237 237 237;
+  --muted: 39 39 42;
+  --muted-foreground: 161 161 170;
+  --accent: 39 39 42;
+  --accent-foreground: 237 237 237;
+  --destructive: 239 68 68;
+  --destructive-foreground: 255 255 255;
+  --border: 63 63 70;
+  --input: 63 63 70;
+  --ring: 108 63 245;
+}
+
+@layer utilities {
+  .bg-grid-white\/\[0\.05\] {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--app-bg);
+  color: var(--app-fg);
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body pre,
+.markdown-body code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.code-block {
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.code-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 10px;
+  background: var(--surface-bg);
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 300ms ease, border-color 300ms ease;
+}
+
+.code-lang {
+  font-size: 12px;
+  color: var(--muted-fg);
+}
+
+.code-pre {
+  margin: 0;
+  overflow: auto;
+}
+
+.code-lines {
+  display: grid;
+  grid-auto-rows: minmax(18px, auto);
+}
+
+.code-line {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  align-items: baseline;
+}
+
+.code-lineno {
+  user-select: none;
+  text-align: right;
+  padding: 0 10px 0 0;
+  color: var(--muted-fg);
+  border-right: 1px solid var(--border-color);
+}
+
+.code-linecontent {
+  padding: 0 12px;
+  white-space: pre;
+}
+
+.markdown-body :not(pre) > code {
+  padding: 0.15em 0.35em;
+  border-radius: 6px;
+  background: rgba(127, 127, 127, 0.14);
+}
+
+.katex {
+  font-size: 1em;
+}
+
+:root[data-theme="light"] code[class*="language-"],
+:root[data-theme="light"] pre[class*="language-"] {
+  background: #f6f8fa;
+  color: #24292f;
+}
+
+:root[data-theme="light"] .token.comment,
+:root[data-theme="light"] .token.prolog,
+:root[data-theme="light"] .token.doctype,
+:root[data-theme="light"] .token.cdata {
+  color: #6e7781;
+}
+
+:root[data-theme="light"] .token.punctuation {
+  color: #24292f;
+}
+
+:root[data-theme="light"] .token.property,
+:root[data-theme="light"] .token.tag,
+:root[data-theme="light"] .token.boolean,
+:root[data-theme="light"] .token.number,
+:root[data-theme="light"] .token.constant,
+:root[data-theme="light"] .token.symbol,
+:root[data-theme="light"] .token.deleted {
+  color: #0550ae;
+}
+
+:root[data-theme="light"] .token.selector,
+:root[data-theme="light"] .token.attr-name,
+:root[data-theme="light"] .token.string,
+:root[data-theme="light"] .token.char,
+:root[data-theme="light"] .token.builtin,
+:root[data-theme="light"] .token.inserted {
+  color: #0a3069;
+}
+
+:root[data-theme="light"] .token.operator,
+:root[data-theme="light"] .token.entity,
+:root[data-theme="light"] .token.url,
+:root[data-theme="light"] .language-css .token.string,
+:root[data-theme="light"] .style .token.string {
+  color: #24292f;
+}
+
+:root[data-theme="light"] .token.atrule,
+:root[data-theme="light"] .token.attr-value,
+:root[data-theme="light"] .token.keyword {
+  color: #cf222e;
+}
+
+:root[data-theme="light"] .token.function,
+:root[data-theme="light"] .token.class-name {
+  color: #8250df;
+}
+
+:root[data-theme="light"] .token.regex,
+:root[data-theme="light"] .token.important,
+:root[data-theme="light"] .token.variable {
+  color: #116329;
+}
+
+@media print {
+  :root {
+    --app-bg: #ffffff;
+    --app-fg: #000000;
+    --surface-bg: #ffffff;
+    --surface-fg: #000000;
+    --border-color: #d0d0d0;
+    --muted-fg: rgba(0, 0, 0, 0.65);
+    --bubble-user-bg: #ffffff;
+    --bubble-user-fg: #000000;
+    --bubble-ai-bg: #ffffff;
+    --bubble-ai-fg: #000000;
+    --fab-bg: transparent;
+    --fab-fg: #000000;
+    --fab-shadow: none;
+  }
+
+  .code-toolbar {
+    background: #ffffff !important;
+  }
+
+  pre[class*="language-"] {
+    background: #ffffff !important;
+  }
+}
+
+/* Navigation Bar Dark Mode Support */
+.ant-menu {
+  background: transparent !important;
+  color: var(--nav-text-color) !important;
+  border-bottom: none !important;
+}
+
+.ant-menu-item {
+  color: var(--nav-text-color) !important;
+}
+
+.ant-menu-item:hover,
+.ant-menu-item-active {
+  color: var(--primary-color) !important;
+}
+
+.ant-menu-item-selected {
+  color: var(--primary-color) !important;
+  background-color: transparent !important;
+}
+
+.ant-menu-item-selected::after {
+  border-bottom-color: var(--primary-color) !important;
+}
+
+.ant-menu-item .anticon {
+  color: inherit !important;
+}
+
+.ant-menu-title-content {
+  color: inherit !important;
+}
+
+/* 文本片段高亮样式 */
+.text-snippet {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.text-snippet:hover {
+  background-color: rgba(255, 215, 0, 0.3);
+  border-radius: 2px;
+}
+
+/* 深色模式下的高亮样式 */
+:root[data-theme="dark"] .text-snippet:hover {
+  background-color: rgba(255, 215, 0, 0.2);
+}

@@ -1,0 +1,214 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --app-bg: #f0f2f5;
+  --app-fg: rgba(0, 0, 0, 0.88);
+  --surface-bg: #ffffff;
+  --surface-fg: #323130;
+  --border-color: #f0f0f0;
+  --muted-fg: rgba(0, 0, 0, 0.45);
+
+  --bubble-user-bg: #0078d4;
+  --bubble-user-fg: #ffffff;
+  --bubble-ai-bg: #f3f2f1;
+  --bubble-ai-fg: #323130;
+
+  --fab-bg: #ffffff;
+  --fab-fg: #323130;
+  --fab-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+
+  --background: 255 255 255;
+  --foreground: 23 23 23;
+  --primary: 108 63 245;
+  --primary-foreground: 255 255 255;
+  --secondary: 245 245 245;
+  --secondary-foreground: 23 23 23;
+  --muted: 245 245 245;
+  --muted-foreground: 107 114 128;
+  --accent: 245 245 245;
+  --accent-foreground: 23 23 23;
+  --destructive: 239 68 68;
+  --destructive-foreground: 255 255 255;
+  --border: 226 232 240;
+  --input: 226 232 240;
+  --ring: 108 63 245;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --app-bg: #0f0f10;
+    --app-fg: rgba(255, 255, 255, 0.88);
+    --surface-bg: #1b1a19;
+    --surface-fg: rgba(255, 255, 255, 0.88);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --muted-fg: rgba(255, 255, 255, 0.6);
+
+    --bubble-user-bg: #0078d4;
+    --bubble-user-fg: #ffffff;
+    --bubble-ai-bg: #252423;
+    --bubble-ai-fg: #f3f2f1;
+
+    --fab-bg: #1b1a19;
+    --fab-fg: rgba(255, 255, 255, 0.88);
+    --fab-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+
+    --background: 10 10 10;
+    --foreground: 237 237 237;
+    --primary: 108 63 245;
+    --primary-foreground: 255 255 255;
+    --secondary: 39 39 42;
+    --secondary-foreground: 237 237 237;
+    --muted: 39 39 42;
+    --muted-foreground: 161 161 170;
+    --accent: 39 39 42;
+    --accent-foreground: 237 237 237;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 63 63 70;
+    --input: 63 63 70;
+    --ring: 108 63 245;
+  }
+}
+
+:root[data-theme="light"] {
+  --app-bg: #f0f2f5;
+  --app-fg: rgba(0, 0, 0, 0.88);
+  --surface-bg: #ffffff;
+  --surface-fg: #323130;
+  --border-color: #f0f0f0;
+  --muted-fg: rgba(0, 0, 0, 0.45);
+
+  --bubble-user-bg: #0078d4;
+  --bubble-user-fg: #ffffff;
+  --bubble-ai-bg: #f3f2f1;
+  --bubble-ai-fg: #323130;
+
+  --fab-bg: #ffffff;
+  --fab-fg: #323130;
+  --fab-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+}
+
+:root[data-theme="dark"] {
+  --app-bg: #0f0f10;
+  --app-fg: rgba(255, 255, 255, 0.88);
+  --surface-bg: #1b1a19;
+  --surface-fg: rgba(255, 255, 255, 0.88);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --muted-fg: rgba(255, 255, 255, 0.6);
+
+  --bubble-user-bg: #0078d4;
+  --bubble-user-fg: #ffffff;
+  --bubble-ai-bg: #252423;
+  --bubble-ai-fg: #f3f2f1;
+
+  --fab-bg: #1b1a19;
+  --fab-fg: rgba(255, 255, 255, 0.88);
+  --fab-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+
+  --nav-icon-color: rgba(255, 255, 255, 0.85);
+  --nav-text-color: rgba(255, 255, 255, 0.85);
+
+  --background: 10 10 10;
+  --foreground: 237 237 237;
+  --primary: 108 63 245;
+  --primary-foreground: 255 255 255;
+  --secondary: 39 39 42;
+  --secondary-foreground: 237 237 237;
+  --muted: 39 39 42;
+  --muted-foreground: 161 161 170;
+  --accent: 39 39 42;
+  --accent-foreground: 237 237 237;
+  --destructive: 239 68 68;
+  --destructive-foreground: 255 255 255;
+  --border: 63 63 70;
+  --input: 63 63 70;
+  --ring: 108 63 245;
+}
+
+@layer utilities {
+  .bg-grid-white\/\[0\.05\] {
+    background-image: linear-gradient(
+        to right,
+        rgb(255 255 255 / 0.05) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgb(255 255 255 / 0.05) 1px,
+        transparent 1px
+      );
+  }
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--app-bg);
+  color: var(--app-fg);
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body pre,
+.markdown-body code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+.gradient-button {
+  position: relative;
+  background: linear-gradient(92deg, rgb(108 63 245) 0%, rgb(59 130 246) 100%);
+  transition: transform .12s ease, box-shadow .2s ease, filter .2s ease;
+  box-shadow: 0 8px 24px rgba(108, 63, 245, .35);
+}
+
+.gradient-button::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 12px;
+  padding: 1px;
+  background: linear-gradient(120deg, rgba(255,255,255,.8), rgba(255,255,255,0), rgba(255,255,255,.5));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: .9;
+}
+
+.gradient-button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+  box-shadow: 0 12px 28px rgba(108, 63, 245, .42);
+}
+
+.gradient-button:active {
+  transform: translateY(0);
+}
+
+.gradient-button-variant {
+  background: linear-gradient(92deg, rgb(17 24 39) 0%, rgb(55 65 81) 100%);
+  box-shadow: 0 8px 24px rgba(17, 24, 39, .32);
+}

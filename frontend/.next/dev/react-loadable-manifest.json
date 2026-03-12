@@ -1,0 +1,50 @@
+{
+  "..\\node_modules\\next\\dist\\client\\dev\\hot-reloader\\app\\web-socket.js -> @vercel/turbopack-ecmascript-runtime/browser/dev/hmr-client/hmr-client.ts": {
+    "id": "..\\node_modules\\next\\dist\\client\\dev\\hot-reloader\\app\\web-socket.js -> @vercel/turbopack-ecmascript-runtime/browser/dev/hmr-client/hmr-client.ts",
+    "files": [
+      "static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+    ]
+  },
+  "App.tsx -> ./components/Dashboard": {
+    "id": "App.tsx -> ./components/Dashboard",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_Dashboard_tsx.js"
+    ]
+  },
+  "App.tsx -> ./components/DocumentList": {
+    "id": "App.tsx -> ./components/DocumentList",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_DocumentList_tsx.js"
+    ]
+  },
+  "App.tsx -> ./components/KnowledgeGraph": {
+    "id": "App.tsx -> ./components/KnowledgeGraph",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_KnowledgeGraph_tsx.js"
+    ]
+  },
+  "App.tsx -> ./components/McpDebug": {
+    "id": "App.tsx -> ./components/McpDebug",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_McpDebug_tsx.js"
+    ]
+  },
+  "App.tsx -> ./components/Quiz": {
+    "id": "App.tsx -> ./components/Quiz",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_Quiz_tsx.js"
+    ]
+  },
+  "App.tsx -> ./components/Settings": {
+    "id": "App.tsx -> ./components/Settings",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_Settings_tsx.js"
+    ]
+  },
+  "App.tsx -> ./components/TodayTasks": {
+    "id": "App.tsx -> ./components/TodayTasks",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_TodayTasks_tsx.js"
+    ]
+  }
+}
