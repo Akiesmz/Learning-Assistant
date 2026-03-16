@@ -88,7 +88,6 @@ graph TD
     style Backend fill:#e8f5e9,stroke:#333
     style VectorDB fill:#fff3e0,stroke:#333
     style GraphDB fill:#fff3e0,stroke:#333
-
 ```
 
 ### 核心模块
