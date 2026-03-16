@@ -52,10 +52,10 @@
 ### 架构设计
 ```mermaid
 graph TD
-    User([用户 User]) <--> Frontend[前端 Frontend (Next.js)]
-    Frontend <--> Backend[后端 Backend (FastAPI)]
+    User([用户 User]) <--> Frontend[前端 Frontend]
+    Frontend <--> Backend[后端 Backend]
     
-    subgraph "Data Processing Pipeline (数据处理流水线)"
+    subgraph DataPipeline[数据处理流水线]
         direction TB
         DocSvc[Document Service] --> |1. Parse| Parser{解析器 Router}
         Parser --> |Complex PDF| MinerU[MinerU API]
@@ -71,11 +71,11 @@ graph TD
         KGSvc --> |NER & Community| GraphDB[NetworkX Graph]
     end
     
-    subgraph "Inference Pipeline (推理流水线)"
+    subgraph InferencePipeline[推理流水线]
         direction TB
-        SearchSvc[Vector Service] --> |1. Recall (Top-20)| FAISS[(FAISS)]
-        FAISS --> |Candidates| Reranker[BGE Reranker]
-        Reranker --> |2. Rerank (Top-3)| Context[Context]
+        SearchSvc[Vector Service] --> |1. Recall Top-20| FAISSNode[(FAISS)]
+        FAISSNode --> |Candidates| Reranker[BGE Reranker]
+        Reranker --> |2. Rerank Top-3| Context[Context]
         Context --> LLM[LLM Service]
         LLM --> |Stream Response| StreamOut[SSE Stream]
     end
