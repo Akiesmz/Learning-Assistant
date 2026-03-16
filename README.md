@@ -60,7 +60,7 @@ graph TD
         DocSvc[Document Service] --> |1. Parse| Parser{解析器 Router}
         Parser --> |Complex PDF| MinerU[MinerU API]
         Parser --> |Simple/Local| LocalParser[Local Parser]
-        MinerU --> Markdown
+        MinerU --> Markdown[Markdown]
         LocalParser --> Markdown
         Markdown --> |2. Clean & Chunk| Chunker[Semantic Chunker]
         
@@ -73,9 +73,9 @@ graph TD
     
     subgraph "Inference Pipeline (推理流水线)"
         direction TB
-        SearchSvc[Vector Service] --> |1. Recall (Top-20)| FAISS
+        SearchSvc[Vector Service] --> |1. Recall (Top-20)| FAISS[(FAISS)]
         FAISS --> |Candidates| Reranker[BGE Reranker]
-        Reranker --> |2. Rerank (Top-3)| Context
+        Reranker --> |2. Rerank (Top-3)| Context[Context]
         Context --> LLM[LLM Service]
         LLM --> |Stream Response| StreamOut[SSE Stream]
     end
@@ -88,6 +88,7 @@ graph TD
     style Backend fill:#e8f5e9,stroke:#333
     style VectorDB fill:#fff3e0,stroke:#333
     style GraphDB fill:#fff3e0,stroke:#333
+
 ```
 
 ### 核心模块
